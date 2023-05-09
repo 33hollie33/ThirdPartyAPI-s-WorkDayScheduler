@@ -11,7 +11,7 @@ The time block of that hour is highlighed using CSS and JQ, so the user can see 
 Local storage was used in the code to enable the user to see what they have inputted previously, so it enables them to look at what they have planned. By using local storage, it saves the data that has been inserted by the user, even when the page has been refreshed. 
 
 See image below of the scheduler:
+![Work day Scheduler](/assets%20/imgs/workdayschedulerimage.png)
 
-
-Please refer to the link down below:
+Please refer to the link down below: 
 

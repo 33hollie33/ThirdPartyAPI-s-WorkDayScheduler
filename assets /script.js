@@ -1,54 +1,55 @@
 var now = dayjs();
-// used day js
-
+// used day js for the scheduler
 $(function () {
-  $(function () {
-    
-      let currentDay = document.getElementById("currentDay");
-    
-      let ending = getEnding();
-      let dayOfWeek = getDayOfWeek();
-      let month = getMonth();
-    
-      console.log(now.format("dddd, MMMM D"));
-      currentDay.innerHTML = (now.format("dddd, MMMM Do YYYY"));  
-      // used day js for the date to appear on top of the work scheduler
-    
-      createHourBlocks();
-    });
+console.log(now.format)
 
+// made variables 
+
+  let currentDay = document.getElementById("currentDay");
+
+  let ending = getEnding();
+  let dayOfWeek = getDayOfWeek();
+  let month = getMonth();
+
+  console.log(now.format("dddd, MMMM D"));
+  currentDay.innerHTML = (now.format("dddd, MMMM Do YYYY"));  
+
+  createHourBlocks();
 });
 
-// created a for loop 
-for (let hour = 0; hour <= 24; hour++) {
-  let blockWrap = $('<div>');
-  blockWrap.attr('id', "hour-" + hour)
-  blockWrap.addClass("row time-block");
-  if (now.hour() == hour) {
-    blockWrap.addClass("present");
-  }
-  else if (now.hour() > hour) {
-    blockWrap.addClass("past");
-  }
-  else {
-    blockWrap.addClass("future");
-  }
 
-  let hourWrap = $('<div>');
-  hourWrap.addClass("col-2 col-md-1 hour text-center py-3")
+function createHourBlocks() {
 
-  let timeOfDay = "";
-  if (hour >= 0 && hour <= 12) {
-    timeOfDay = "AM";
-  }
-  else {
-    timeOfDay = "PM";
-  }
+  // created a for loop
 
-  hourWrap.text(hour + timeOfDay);
-}
+  for (let hour = 0; hour <= 24; hour++) {
+    let blockWrap = $('<div>');
+    blockWrap.attr('id', "hour-" + hour)
+    blockWrap.addClass("row time-block");
+    if (now.hour() == hour) {
+      blockWrap.addClass("present");
+    }
+    else if (now.hour() > hour) {
+      blockWrap.addClass("past");
+    }
+    else {
+      blockWrap.addClass("future");
+    }
 
-let textareaWrap = $('<textarea>');
+    let hourWrap = $('<div>');
+    hourWrap.addClass("col-2 col-md-1 hour text-center py-3")
+
+    let timeOfDay = "";
+    if (hour >= 0 && hour <= 12) {
+      timeOfDay = "AM";
+    }
+    else {
+      timeOfDay = "PM";
+    }
+
+    hourWrap.text(hour + timeOfDay);
+
+    let textareaWrap = $('<textarea>');
     textareaWrap.addClass("col-8 col-md-10 description");
 
     let taskValue = localStorage.getItem(blockWrap.attr('id'));
@@ -74,7 +75,11 @@ let textareaWrap = $('<textarea>');
     blockWrap.append(buttonWrap);
 
     $('#container').append(blockWrap);
+  }
 
+}
+
+// created a function for the week 
 function getDayOfWeek() {
   if (now.day() == 0) {
     return "Sunday";
@@ -97,7 +102,7 @@ function getDayOfWeek() {
     return "Saturday";
   }
 }
-
+// created a function for the month
 function getMonth() {
   if (now.month() == 0) {
     return "January";

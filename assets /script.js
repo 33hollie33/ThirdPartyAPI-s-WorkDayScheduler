@@ -21,6 +21,7 @@ console.log(now.format)
 function createHourBlocks() {
 
   // created a for loop
+  // made a 24 hour in case the user works shift patterns 
 
   for (let hour = 0; hour <= 24; hour++) {
     let blockWrap = $('<div>');

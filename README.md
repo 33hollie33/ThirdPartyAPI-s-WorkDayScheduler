@@ -14,4 +14,5 @@ See image below of the scheduler:
 ![Work day Scheduler](/assets%20/imgs/workdayschedulerimage.png)
 
 Please refer to the link down below: 
+https://33hollie33.github.io/ThirdPartyAPI-s-WorkDayScheduler/
 
